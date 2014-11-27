@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">NCC.Apps</string>
+    <string name="sheader">NCC Apps</string>
+    <string name="action_settings">Settings</string>
+    <string name="noo_header">NCC App</string>
+    <string name="noo_subjudul">System New Customer Card</string>
+    <string name="noo_subversion">Version 1.01 (&#169;) 2014</string>
+    <string name="mnu_overview_list_noo">List Overview</string>
+    <string name="mnu_sync_posting_noo">Posting &amp; Syncronize</string>
+    <string name="mnu_parameter_noo">Parameter</string>
+    <string name="mnu_exit_noo">Exit</string>
+
+</resources>
