@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -16,6 +17,10 @@ public class NOOParameter extends Activity implements AdapterView.OnItemSelected
 	Spinner spinsitex = null;
 	Spinner spinrax = null;
 	
+	EditText parUsername; 
+	EditText parPasswd;
+	EditText parPidkey, parSite, parRom ;
+	
 	String[] sitex = {"BDG1 Bandung","JKT1 Jakarta","SBY1 Surabaya","YGY1 Yogjakarta","SLO1 Solo","DPS1 Denpasar"};
 	String[] romax = {"RA1 Region Indonesia Barat","RA2 Region Indonesia Tengah","RA3 Region Indonesia Timur"};
 	
@@ -23,6 +28,12 @@ public class NOOParameter extends Activity implements AdapterView.OnItemSelected
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.parameter);
+		
+		parUsername = (EditText) findViewById(R.id.paraETusername);
+		parPasswd = (EditText) findViewById(R.id.paraETpassword);
+		parPidkey = (EditText) findViewById(R.id.paraETpidkey);
+		parSite = (EditText) findViewById(R.id.paraETsite);
+		parRom = (EditText) findViewById(R.id.paraETrom);
 		
 		spinsitex = (Spinner) findViewById(R.id.paraSpin1);
 		spinsitex.setOnItemSelectedListener((OnItemSelectedListener) NOOParameter.this);
@@ -51,24 +62,23 @@ public class NOOParameter extends Activity implements AdapterView.OnItemSelected
 	 
 	@SuppressLint("DefaultLocale")
 	public void onItemSelected(AdapterView<?> as_sitex, View v, int position,   long id) {
-		String piprnc = sitex[position].toString().toUpperCase();
-		Toast.makeText(this, "Site Optional <"+piprnc.substring(0, 3)+"> is Choice !",Toast.LENGTH_LONG).show();
+		String sitepos = sitex[position].toString().toUpperCase();
+		Toast.makeText(this, "Site Optional <"+sitepos.substring(0, 4)+"> is Choice ! ",Toast.LENGTH_LONG).show();
 	}
 
 	public void onNothingSelected(AdapterView<?> as_sitex) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub		
 	}
 	
+
 	@SuppressLint("DefaultLocale")
 	public void onItemSelected1(AdapterView<?> as_ramx, View v, int position,   long id) {
-		String piramx = romax[position].toString().toUpperCase();
-		Toast.makeText(this, "Area Oprasional <"+piramx.substring(0, 3)+"> is Choice !",Toast.LENGTH_LONG).show();
+		String rampos = romax[position].toString().toUpperCase(); 
+		Toast.makeText(this, "Area Oprasional <"+rampos.substring(0, 4)+"> is Choice ! ",Toast.LENGTH_LONG).show();
 	}
 	
 	public void onNothingSelected1(AdapterView<?> as_ramx) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub		
 	}
 
 }

@@ -11,7 +11,7 @@
     tools:ignore="HardcodedText,ContentDescription,SpUsage" >
 
     <TextView
-        android:id="@+id/paraTvusername" 
+        android:id="@+id/splashTvversion" 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -21,23 +21,23 @@
         android:textSize="@dimen/abc_action_bar_progress_bar_size" />
 
     <TextView
-        android:id="@+id/paratextView1"
+        android:id="@+id/splashTvJudul"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/paraTvusername"
+        android:layout_alignLeft="@+id/splashTvversion"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/paraTvusername"
+        android:layout_below="@+id/splashTvversion"
         android:gravity="center"
         android:text="@string/noo_subjudul"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/splashTvcomp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/paratextView1"
-        android:layout_alignRight="@+id/paratextView1"
-        android:layout_below="@+id/paratextView1"
+        android:layout_alignLeft="@+id/splashTvJudul"
+        android:layout_alignRight="@+id/splashTvJudul"
+        android:layout_below="@+id/splashTvJudul"
         android:gravity="center"
         android:text="@string/noo_subversion"
         android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -46,7 +46,7 @@
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView3"
+        android:layout_below="@+id/splashTvcomp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="22dp"
         android:src="@drawable/ic_launcher" />
@@ -92,8 +92,8 @@
         style="@drawable/btnmerah"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView3"
-        android:layout_alignRight="@+id/textView3"
+        android:layout_alignLeft="@+id/splashTvcomp"
+        android:layout_alignRight="@+id/splashTvcomp"
         android:layout_centerVertical="true"
         android:height="30dp"
         android:text="@string/mnu_overview_list_noo"

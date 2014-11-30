@@ -9,16 +9,16 @@
     tools:ignore="HardcodedText,ContentDescription" >
 
     <TextView
-        android:id="@+id/paraTvusername"
+        android:id="@+id/splashTvversion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/paratextView1"
+        android:layout_below="@+id/splashTvJudul"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="@string/noo_subversion"/>
+        android:text="@string/noo_subversion" />
 
     <TextView
-        android:id="@+id/paratextView1"
+        android:id="@+id/splashTvJudul"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -29,7 +29,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/splashTvcomp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"

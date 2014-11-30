@@ -13,7 +13,7 @@ public class DBinitialPara {
 	public static final String KEY_PASSWORD = "user_password";
 	public static final String KEY_KEYSID = "user_keysid";
 	
-	private static final String DATABASE_NAME = "mbsdmsdb";
+	private static final String DATABASE_NAME = "ncadb";
 	private static final String DATABASE_TABLE = "dmsusertable";
 	private static final int DATABASE_VERSION = 1;
 	

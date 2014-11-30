@@ -18,12 +18,12 @@
             android:layout_weight="0.33" >
 
             <TextView
-                android:id="@+id/paratextView1"
+                android:id="@+id/paraTvJudulx"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="35dp" 
                 android:text="Setting Parameter"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:layout_below="@+id/paratextView1"
+                android:layout_below="@+id/paraTvJudulx"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:text="User Name :"
@@ -73,6 +73,7 @@
                 android:layout_below="@+id/paraTvpassword"
                 android:ems="10"
                 android:height="30dp"
+                android:inputType="textPassword"
                 android:maxHeight="30dp"
                 android:textSize="10dp" />
 
@@ -162,7 +163,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentRight="true"
-                android:layout_below="@+id/paraSpin2" >
+                android:layout_below="@+id/paraSpin2"
+                android:layout_marginTop="20dp" >
 
                 <Button
                     android:id="@+id/paraBtnSave"
@@ -197,8 +199,9 @@
                     android:background="@drawable/btnmerah"
                     android:text="Back"
                     android:textSize="10dp" />
-
             </RelativeLayout>
+
+
 
         </RelativeLayout>
 
