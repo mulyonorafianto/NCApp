@@ -1,14 +1,20 @@
 package com.home.ncapp;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.Dialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
@@ -21,19 +27,29 @@ public class NOOParameter extends Activity implements AdapterView.OnItemSelected
 	EditText parPasswd;
 	EditText parPidkey, parSite, parRom ;
 	
+	public String datestring;
+	
 	String[] sitex = {"BDG1 Bandung","JKT1 Jakarta","SBY1 Surabaya","YGY1 Yogjakarta","SLO1 Solo","DPS1 Denpasar"};
 	String[] romax = {"RA1 Region Indonesia Barat","RA2 Region Indonesia Tengah","RA3 Region Indonesia Timur"};
 	
+	@SuppressLint("SimpleDateFormat")
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.parameter);
 		
 		parUsername = (EditText) findViewById(R.id.paraETusername);
-		parPasswd = (EditText) findViewById(R.id.paraETpassword);
+		parPasswd = (EditText) findViewById(R.id.paraETpassword); 
 		parPidkey = (EditText) findViewById(R.id.paraETpidkey);
 		parSite = (EditText) findViewById(R.id.paraETsite);
 		parRom = (EditText) findViewById(R.id.paraETrom);
+		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd' 'HH:mm:ss");
+		Date date = new Date();
+		datestring = dateFormat.format(date); 
+		
+		parSite.setEnabled(false);
+		parRom.setEnabled(false);
 		
 		spinsitex = (Spinner) findViewById(R.id.paraSpin1);
 		spinsitex.setOnItemSelectedListener((OnItemSelectedListener) NOOParameter.this);
@@ -41,16 +57,67 @@ public class NOOParameter extends Activity implements AdapterView.OnItemSelected
 		spinrax = (Spinner) findViewById(R.id.paraSpin2);
 		spinrax.setOnItemSelectedListener((OnItemSelectedListener) NOOParameter.this);
 		
-		ArrayAdapter<String> as_sitex = new ArrayAdapter<String>(NOOParameter.this,android.R.layout.simple_spinner_item, sitex);
-		as_sitex.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		spinsitex.setAdapter(as_sitex);
+		ArrayAdapter<String> as1 = new ArrayAdapter<String>(NOOParameter.this,android.R.layout.simple_spinner_item, sitex);
+		as1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spinsitex.setAdapter(as1);
 		
-		ArrayAdapter<String> as_ramx = new ArrayAdapter<String>(NOOParameter.this,android.R.layout.simple_spinner_item, romax);
-		as_ramx.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		spinrax.setAdapter(as_ramx);
+		ArrayAdapter<String> as2 = new ArrayAdapter<String>(NOOParameter.this,android.R.layout.simple_spinner_item, romax);
+		as2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spinrax.setAdapter(as2);
 		
-		Button btnBack = (Button) findViewById(R.id.paraBtnBack);
 		
+		Button btnSave = (Button) findViewById(R.id.paraBtnSave);
+		btnSave.setOnClickListener(new View.OnClickListener() {			
+			@Override
+			public void onClick(View v) {
+				boolean itsimpan = true;
+				 try {
+					 String iuser = parUsername.getText().toString();
+					 String ipasswd = parPasswd.getText().toString();
+					 String ipid = parPidkey.getText().toString();
+					 String isite = parSite.getText().toString();
+					 String irom = parRom.getText().toString();
+					 
+					 if (iuser.isEmpty()) {
+						 itsimpan = false;
+					 	 Toast.makeText(NOOParameter.this, "Save Parameter FAIL!, User is Null", Toast.LENGTH_SHORT).show();
+					 } else {	 
+						 NOODBInitial entry = new NOODBInitial(NOOParameter.this);
+						 entry.open();
+						 if(entry.getJUser()<= 0) { 
+				            entry.createEntry(iuser,ipasswd,ipid,isite,irom);						    
+						 }else{
+							entry.updateEntry("1",iuser,ipasswd,ipid,isite,irom);
+						 }						 
+						 entry.createLog(datestring, "Parameter", "Save User "+iuser+", Password "+ipasswd+", Sid Key "+ipid+", Site "+isite);
+						 entry.close();
+					 }
+				 } catch (Exception e) {
+					 itsimpan = false;
+					 String error = e.toString();
+					 Dialog d = new Dialog(NOOParameter.this);
+				     d.setTitle("Error !");
+				     TextView tv = new TextView(NOOParameter.this);
+				     tv.setText(error);
+				     d.setContentView(tv);  
+				     d.show();
+				     Log.e("log_tag_save_param", "Error parameter save data "+e.toString());
+				 } finally {
+					 if (itsimpan) {
+					     Dialog d = new Dialog(NOOParameter.this);
+					     d.setTitle("Save Data !");
+					     TextView tv = new TextView(NOOParameter.this);
+					     tv.setText("Succes");
+					     d.setContentView(tv);
+					     d.show();
+					 }				 
+				 }
+				 finish();
+				
+			}
+		});
+		
+		Button btnBack = (Button) findViewById(R.id.paraBtnBack);		
 		btnBack.setOnClickListener(new View.OnClickListener() {			
 			@Override
 			public void onClick(View v) {
@@ -61,24 +128,25 @@ public class NOOParameter extends Activity implements AdapterView.OnItemSelected
 	}
 	 
 	@SuppressLint("DefaultLocale")
-	public void onItemSelected(AdapterView<?> as_sitex, View v, int position,   long id) {
-		String sitepos = sitex[position].toString().toUpperCase();
-		Toast.makeText(this, "Site Optional <"+sitepos.substring(0, 4)+"> is Choice ! ",Toast.LENGTH_LONG).show();
+	public void onItemSelected(AdapterView<?> parent, View v, int position,   long id) {	
+        switch (parent.getId()) {
+        case R.id.paraSpin1:
+        	String sitepos = sitex[position].toString().toUpperCase();
+        	parSite.setText(sitepos.substring(0, 4));
+        	Toast.makeText(this, "Site Optional <"+sitepos.substring(0, 4)+"> is Choice ! ",Toast.LENGTH_LONG).show();
+            break;
+        case R.id.paraSpin2:
+        	String rompos = romax[position].toString().toUpperCase();
+        	parRom.setText(rompos.substring(0, 3));
+        	Toast.makeText(this, "Rom Optional <"+rompos.substring(0, 3)+"> is Choice ! ",Toast.LENGTH_LONG).show(); 
+            break;
+        default:
+            break;
+        }
 	}
 
 	public void onNothingSelected(AdapterView<?> as_sitex) {
 		// TODO Auto-generated method stub		
 	}
 	
-
-	@SuppressLint("DefaultLocale")
-	public void onItemSelected1(AdapterView<?> as_ramx, View v, int position,   long id) {
-		String rampos = romax[position].toString().toUpperCase(); 
-		Toast.makeText(this, "Area Oprasional <"+rampos.substring(0, 4)+"> is Choice ! ",Toast.LENGTH_LONG).show();
-	}
-	
-	public void onNothingSelected1(AdapterView<?> as_ramx) {
-		// TODO Auto-generated method stub		
-	}
-
 }

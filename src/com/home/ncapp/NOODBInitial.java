@@ -2,6 +2,7 @@ package com.home.ncapp;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -12,6 +13,7 @@ public class NOODBInitial {
 	public static final String KEY_PASSWORD = "user_password";
 	public static final String KEY_KEYSID = "user_keysid";
 	public static final String KEY_SITE = "user_site";	
+	public static final String KEY_ROM = "user_rom";
 	
 	public static final String LOG_ROWID = "_idx";
 	public static final String LOG_DATE = "log_date";
@@ -41,14 +43,15 @@ public class NOODBInitial {
 			KEY_ROWID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
 			KEY_USER + " TEXT NOT NULL, " +
 			KEY_PASSWORD + " TEXT NOT NULL, " +
-			KEY_KEYSID + " TEXT NOT NULL);"
+			KEY_KEYSID + " TEXT NOT NULL, " +
+			KEY_ROM + " TEXT NOT NULL); "
             );		
 			
 			db.execSQL("CREATE TABLE "+ DATABASE_LOGTABLE + " ("+
 			LOG_ROWID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
 			LOG_DATE + " TEXT NOT NULL, " +
 			LOG_PROSSES + " TEXT NOT NULL, " +
-			LOG_NOTES + " TEXT NOT NULL );"
+			LOG_NOTES + " TEXT NOT NULL ); "
             );	
 		}
 
@@ -79,13 +82,35 @@ public class NOODBInitial {
 	
 	// end of Initial database ======================
 	// table user //
-	public long createEntry(String iuser, String ipasswd, String isid,String ipsite) {
+	public long createEntry(String iuser, String ipasswd, String isid,String ipsite,String iprom) {
 		ContentValues cv = new ContentValues();
 		cv.put(KEY_USER, iuser);
 		cv.put(KEY_PASSWORD, ipasswd);
 		cv.put(KEY_KEYSID, isid);
 		cv.put(KEY_SITE, ipsite);
+		cv.put(KEY_ROM, iprom);
 		return ourDatabase.insert(DATABASE_TABLE, null, cv);
+	}
+	
+	public int getJUser() {
+		String[] coloums = new String[] {KEY_ROWID, KEY_USER, KEY_PASSWORD, KEY_KEYSID, KEY_SITE, KEY_ROM};
+		Cursor c = ourDatabase.query(DATABASE_TABLE, coloums, null,null,null,null,null);
+		int result = 0;
+		for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
+			result++;
+		}			
+		return result;				
+	}
+	
+	public long updateEntry(String l, String iuser, String ipasswd,
+		String isid, String ipsite, String irom) { 
+		ContentValues cvUp = new ContentValues();
+		cvUp.put(KEY_USER, iuser);
+		cvUp.put(KEY_PASSWORD, ipasswd);
+		cvUp.put(KEY_KEYSID, isid);
+		cvUp.put(KEY_SITE, ipsite);
+		cvUp.put(KEY_ROM, irom);
+		return ourDatabase.update(DATABASE_TABLE, cvUp, KEY_ROWID +"="+l, null);
 	}
 	
 	// table logs //
