@@ -43,8 +43,12 @@ public class NOODBInitial {
 			KEY_ROWID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
 			KEY_USER + " TEXT NOT NULL, " +
 			KEY_PASSWORD + " TEXT NOT NULL, " +
+<<<<<<< HEAD
 			KEY_KEYPID + " TEXT NOT NULL, " +
 			KEY_SITE + " TEXT NOT NULL, " +
+=======
+			KEY_KEYSID + " TEXT NOT NULL, " +
+>>>>>>> origin/master
 			KEY_ROM + " TEXT NOT NULL); "
             );		
 			
@@ -94,7 +98,11 @@ public class NOODBInitial {
 	}
 	
 	public int getJUser() {
+<<<<<<< HEAD
 		String[] coloums = new String[] {KEY_ROWID, KEY_USER, KEY_PASSWORD, KEY_KEYPID, KEY_SITE, KEY_ROM};
+=======
+		String[] coloums = new String[] {KEY_ROWID, KEY_USER, KEY_PASSWORD, KEY_KEYSID, KEY_SITE, KEY_ROM};
+>>>>>>> origin/master
 		Cursor c = ourDatabase.query(DATABASE_TABLE, coloums, null,null,null,null,null);
 		int result = 0;
 		for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
@@ -108,12 +116,17 @@ public class NOODBInitial {
 		ContentValues cvUp = new ContentValues();
 		cvUp.put(KEY_USER, iuser);
 		cvUp.put(KEY_PASSWORD, ipasswd);
+<<<<<<< HEAD
 		cvUp.put(KEY_KEYPID, isid);
+=======
+		cvUp.put(KEY_KEYSID, isid);
+>>>>>>> origin/master
 		cvUp.put(KEY_SITE, ipsite);
 		cvUp.put(KEY_ROM, irom);
 		return ourDatabase.update(DATABASE_TABLE, cvUp, KEY_ROWID +"="+l, null);
 	}
 	
+<<<<<<< HEAD
 	public String getRtUser(long l) {
 		String[] coloums = new String[]{KEY_ROWID, KEY_USER, KEY_PASSWORD, KEY_KEYPID, KEY_SITE, KEY_ROM};;
 		Cursor c = ourDatabase.query(DATABASE_TABLE, coloums, KEY_ROWID +"="+l, null, null, null, null);
@@ -168,6 +181,8 @@ public class NOODBInitial {
 		}
 		return null;
 	}
+=======
+>>>>>>> origin/master
 	// table logs //
 	public long createLog(String ldate, String lproses, String lnotes) {
 		ContentValues cvILog = new ContentValues();

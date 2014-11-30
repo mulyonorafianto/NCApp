@@ -49,8 +49,11 @@ public class NOOParameter extends Activity implements AdapterView.OnItemSelected
 		Date date = new Date();
 		datestring = dateFormat.format(date); 
 		
+<<<<<<< HEAD
 		openparasql();
 		
+=======
+>>>>>>> origin/master
 		parSite.setEnabled(false);
 		parRom.setEnabled(false);
 		
@@ -63,6 +66,7 @@ public class NOOParameter extends Activity implements AdapterView.OnItemSelected
 		ArrayAdapter<String> as1 = new ArrayAdapter<String>(NOOParameter.this,android.R.layout.simple_spinner_item, sitex);
 		as1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinsitex.setAdapter(as1);
+<<<<<<< HEAD
 		
 		ArrayAdapter<String> as2 = new ArrayAdapter<String>(NOOParameter.this,android.R.layout.simple_spinner_item, romax);
 		as2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -120,6 +124,65 @@ public class NOOParameter extends Activity implements AdapterView.OnItemSelected
 			}
 		});
 		
+=======
+		
+		ArrayAdapter<String> as2 = new ArrayAdapter<String>(NOOParameter.this,android.R.layout.simple_spinner_item, romax);
+		as2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spinrax.setAdapter(as2);
+		
+		
+		Button btnSave = (Button) findViewById(R.id.paraBtnSave);
+		btnSave.setOnClickListener(new View.OnClickListener() {			
+			@Override
+			public void onClick(View v) {
+				boolean itsimpan = true;
+				 try {
+					 String iuser = parUsername.getText().toString();
+					 String ipasswd = parPasswd.getText().toString();
+					 String ipid = parPidkey.getText().toString();
+					 String isite = parSite.getText().toString();
+					 String irom = parRom.getText().toString();
+					 
+					 if (iuser.isEmpty()) {
+						 itsimpan = false;
+					 	 Toast.makeText(NOOParameter.this, "Save Parameter FAIL!, User is Null", Toast.LENGTH_SHORT).show();
+					 } else {	 
+						 NOODBInitial entry = new NOODBInitial(NOOParameter.this);
+						 entry.open();
+						 if(entry.getJUser()<= 0) { 
+				            entry.createEntry(iuser,ipasswd,ipid,isite,irom);						    
+						 }else{
+							entry.updateEntry("1",iuser,ipasswd,ipid,isite,irom);
+						 }						 
+						 entry.createLog(datestring, "Parameter", "Save User "+iuser+", Password "+ipasswd+", Sid Key "+ipid+", Site "+isite);
+						 entry.close();
+					 }
+				 } catch (Exception e) {
+					 itsimpan = false;
+					 String error = e.toString();
+					 Dialog d = new Dialog(NOOParameter.this);
+				     d.setTitle("Error !");
+				     TextView tv = new TextView(NOOParameter.this);
+				     tv.setText(error);
+				     d.setContentView(tv);  
+				     d.show();
+				     Log.e("log_tag_save_param", "Error parameter save data "+e.toString());
+				 } finally {
+					 if (itsimpan) {
+					     Dialog d = new Dialog(NOOParameter.this);
+					     d.setTitle("Save Data !");
+					     TextView tv = new TextView(NOOParameter.this);
+					     tv.setText("Succes");
+					     d.setContentView(tv);
+					     d.show();
+					 }				 
+				 }
+				 finish();
+				
+			}
+		});
+		
+>>>>>>> origin/master
 		Button btnBack = (Button) findViewById(R.id.paraBtnBack);		
 		btnBack.setOnClickListener(new View.OnClickListener() {			
 			@Override
@@ -152,6 +215,7 @@ public class NOOParameter extends Activity implements AdapterView.OnItemSelected
 		// TODO Auto-generated method stub		
 	}
 	
+<<<<<<< HEAD
 	private void openparasql() {
 		NOODBInitial info = new NOODBInitial(NOOParameter.this);
 		info.open();
@@ -174,4 +238,6 @@ public class NOOParameter extends Activity implements AdapterView.OnItemSelected
 		info.close();
 	}
 	
+=======
+>>>>>>> origin/master
 }
