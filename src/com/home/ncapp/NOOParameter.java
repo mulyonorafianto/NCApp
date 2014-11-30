@@ -14,10 +14,11 @@ import android.widget.AdapterView.OnItemSelectedListener;
 public class NOOParameter extends Activity implements AdapterView.OnItemSelectedListener {
 
 	Spinner spinsitex = null;
+	Spinner spinrax = null;
 	
 	String[] sitex = {"BDG1 Bandung","JKT1 Jakarta","SBY1 Surabaya","YGY1 Yogjakarta","SLO1 Solo","DPS1 Denpasar"};
-	 		
-	@Override
+	String[] romax = {"RA1 Region Indonesia Barat","RA2 Region Indonesia Tengah","RA3 Region Indonesia Timur"};
+	
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
@@ -26,9 +27,16 @@ public class NOOParameter extends Activity implements AdapterView.OnItemSelected
 		spinsitex = (Spinner) findViewById(R.id.paraSpin1);
 		spinsitex.setOnItemSelectedListener((OnItemSelectedListener) NOOParameter.this);
 		
+		spinrax = (Spinner) findViewById(R.id.paraSpin2);
+		spinrax.setOnItemSelectedListener((OnItemSelectedListener) NOOParameter.this);
+		
 		ArrayAdapter<String> as_sitex = new ArrayAdapter<String>(NOOParameter.this,android.R.layout.simple_spinner_item, sitex);
 		as_sitex.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinsitex.setAdapter(as_sitex);
+		
+		ArrayAdapter<String> as_ramx = new ArrayAdapter<String>(NOOParameter.this,android.R.layout.simple_spinner_item, romax);
+		as_ramx.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spinrax.setAdapter(as_ramx);
 		
 		Button btnBack = (Button) findViewById(R.id.paraBtnBack);
 		
@@ -40,15 +48,25 @@ public class NOOParameter extends Activity implements AdapterView.OnItemSelected
 		});
 		
 	}
-	
+	 
 	@SuppressLint("DefaultLocale")
 	public void onItemSelected(AdapterView<?> as_sitex, View v, int position,   long id) {
 		String piprnc = sitex[position].toString().toUpperCase();
-		Toast.makeText(this, "Principal <"+piprnc.substring(0, 3)+"> not List on Server !",Toast.LENGTH_LONG).show();
+		Toast.makeText(this, "Site Optional <"+piprnc.substring(0, 3)+"> is Choice !",Toast.LENGTH_LONG).show();
 	}
 
-	@Override
-	public void onNothingSelected(AdapterView<?> parent) {
+	public void onNothingSelected(AdapterView<?> as_sitex) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@SuppressLint("DefaultLocale")
+	public void onItemSelected1(AdapterView<?> as_ramx, View v, int position,   long id) {
+		String piramx = romax[position].toString().toUpperCase();
+		Toast.makeText(this, "Area Oprasional <"+piramx.substring(0, 3)+"> is Choice !",Toast.LENGTH_LONG).show();
+	}
+	
+	public void onNothingSelected1(AdapterView<?> as_ramx) {
 		// TODO Auto-generated method stub
 		
 	}
