@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.37"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="295dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.35" >
+
+            <TextView
+                android:id="@+id/paratextView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="35dp"
+                android:text="Setting Parameter"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/paraTvusername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/paratextView1"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="User Name :"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="10sp" />
+
+            <EditText
+                android:id="@+id/paraETusername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/paraTvusername"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/paraTvusername"
+                android:ems="10"
+                android:height="30dp"
+                android:maxHeight="30dp"
+                android:textSize="10dp" >
+
+                <requestFocus />
+            </EditText>
+
+            <TextView
+                android:id="@+id/paraTvpassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/paraETusername"
+                android:layout_below="@+id/paraETusername"
+                android:text="Password :"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="10sp" />
+
+            <EditText
+                android:id="@+id/paraETpassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/paraTvpassword"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/paraTvpassword"
+                android:ems="10"
+                android:height="30dp"
+                android:maxHeight="30dp"
+                android:textSize="10dp" />
+
+            <TextView
+                android:id="@+id/paraTvpidkey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/paraETpassword"
+                android:layout_below="@+id/paraETpassword"
+                android:text="PID Key :"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="10sp" />
+
+            <EditText
+                android:id="@+id/paraETpidkey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/paraTvpidkey"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/paraTvpidkey"
+                android:ems="10"
+                android:height="30dp"
+                android:maxHeight="30dp"
+                android:textSize="10dp" />
+
+            <TextView
+                android:id="@+id/paraTvsite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/paraETpidkey"
+                android:layout_below="@+id/paraETpidkey"
+                android:text="Site / Branch :"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="10sp" />
+
+            <EditText
+                android:id="@+id/paraETsite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/paraTvsite"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/paraTvsite"
+                android:ems="10"
+                android:height="30dp"
+                android:maxHeight="30dp"
+                android:textSize="10dp" />
+
+            <Spinner
+                android:id="@+id/paraSpin1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/paraETsite"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/paraETsite" />
+
+            <TextView
+                android:id="@+id/paraTvrom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/paraSpin1"
+                android:layout_below="@+id/paraSpin1"
+                android:text="Regional Operation Manager :"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="10sp" />
+
+            <EditText
+                android:id="@+id/paraETrom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/paraTvrom"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/paraTvrom"
+                android:ems="10"
+                android:height="30dp"
+                android:maxHeight="30dp"
+                android:textSize="10dp" />
+
+            <Spinner
+                android:id="@+id/paraSpin2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/paraETrom"
+                android:layout_below="@+id/paraETrom" />
+
+            <Button
+                android:id="@+id/paraBtnSave"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/paraSpin2"
+                android:layout_alignParentBottom="true"
+                android:text="Save"
+                android:textSize="10dp" />
+
+            <Button
+                android:id="@+id/paraBtnLog"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@+id/paraBtnSave"
+                android:text="Log"
+                android:textSize="10dp" />
+
+            <Button
+                android:id="@+id/paraBtnBack"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:text="Back"
+                android:textSize="10dp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

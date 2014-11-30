@@ -9,16 +9,16 @@
     tools:ignore="HardcodedText,ContentDescription" >
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/paraTvusername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/paratextView1"
         android:layout_gravity="center"
         android:gravity="center"
         android:text="@string/noo_subversion"/>
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/paratextView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"

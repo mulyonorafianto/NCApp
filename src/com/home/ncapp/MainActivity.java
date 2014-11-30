@@ -1,6 +1,7 @@
 package com.home.ncapp;
 
 import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,7 +14,20 @@ public class MainActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		Button btnParameter = (Button) findViewById(R.id.btnPara);
 		Button btnKeluar = (Button) findViewById(R.id.btnKeluar);
+		
+		
+		btnParameter.setOnClickListener(new View.OnClickListener() {			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent openActivityParameter = new Intent("com.home.ncapp.NOOPARAMATER");
+				startActivity(openActivityParameter);
+				
+			}
+		});
 		
 		btnKeluar.setOnClickListener(new View.OnClickListener() {			
 			@Override
