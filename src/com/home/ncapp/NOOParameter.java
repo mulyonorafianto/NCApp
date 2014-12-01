@@ -49,11 +49,8 @@ public class NOOParameter extends Activity implements AdapterView.OnItemSelected
 		Date date = new Date();
 		datestring = dateFormat.format(date); 
 		
-<<<<<<< HEAD
 		openparasql();
 		
-=======
->>>>>>> origin/master
 		parSite.setEnabled(false);
 		parRom.setEnabled(false);
 		
@@ -124,8 +121,7 @@ public class NOOParameter extends Activity implements AdapterView.OnItemSelected
 			}
 		});
 		
-=======
-		
+
 		ArrayAdapter<String> as2 = new ArrayAdapter<String>(NOOParameter.this,android.R.layout.simple_spinner_item, romax);
 		as2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinrax.setAdapter(as2);
@@ -182,7 +178,6 @@ public class NOOParameter extends Activity implements AdapterView.OnItemSelected
 			}
 		});
 		
->>>>>>> origin/master
 		Button btnBack = (Button) findViewById(R.id.paraBtnBack);		
 		btnBack.setOnClickListener(new View.OnClickListener() {			
 			@Override
@@ -215,7 +210,6 @@ public class NOOParameter extends Activity implements AdapterView.OnItemSelected
 		// TODO Auto-generated method stub		
 	}
 	
-<<<<<<< HEAD
 	private void openparasql() {
 		NOODBInitial info = new NOODBInitial(NOOParameter.this);
 		info.open();
@@ -237,7 +231,6 @@ public class NOOParameter extends Activity implements AdapterView.OnItemSelected
 		}
 		info.close();
 	}
+
 	
-=======
->>>>>>> origin/master
 }
