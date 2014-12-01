@@ -6,6 +6,7 @@ import java.util.Date;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -96,7 +97,7 @@ public class NOOParameter extends Activity implements AdapterView.OnItemSelected
 						 }else{
 							entry.updateEntry("1",iuser,ipasswd,ipid,isite,irom);
 						 }						 
-						 entry.createLog(datestring, "Parameter", "Save User "+iuser+", Password "+ipasswd+", Sid Key "+ipid+", Site "+isite);
+						 entry.createLog(datestring, "Parameter Log :", "Save User "+iuser+", Password "+ipasswd+", Sid Key "+ipid+", Site "+isite+", ROM "+irom);
 						 entry.close();
 					 }
 				 } catch (Exception e) {
@@ -112,7 +113,7 @@ public class NOOParameter extends Activity implements AdapterView.OnItemSelected
 				 } finally {
 					 if (itsimpan) {
 					     Dialog d = new Dialog(NOOParameter.this);
-					     d.setTitle("Save Data !");
+					     d.setTitle("Save Data !");					     
 					     TextView tv = new TextView(NOOParameter.this);
 					     tv.setText("Succes");
 					     d.setContentView(tv);
@@ -123,6 +124,15 @@ public class NOOParameter extends Activity implements AdapterView.OnItemSelected
 			}
 		});
 					
+		Button btnLog = (Button) findViewById(R.id.paraBtnLog);		
+		btnLog.setOnClickListener(new View.OnClickListener() {			
+			@Override
+			public void onClick(View v) {
+				Intent openActivityParalog = new Intent("com.home.ncapp.NOOPARALOG");
+				startActivity(openActivityParalog);		
+			}
+		});
+		
 		Button btnBack = (Button) findViewById(R.id.paraBtnBack);		
 		btnBack.setOnClickListener(new View.OnClickListener() {			
 			@Override

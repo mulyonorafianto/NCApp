@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:ignore="TextFields,HardcodedText,UselessParent,InefficientWeight,SpUsage,SmallSp,NestedWeights" >
+    tools:ignore="TextFields,HardcodedText,UselessParent,InefficientWeight,SpUsage,SmallSp,NestedWeights,RtlHardcoded" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
                 android:layout_marginTop="20dp"
                 android:text="User Name :"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textSize="10sp" />
+                android:textSize="12dp" />
 
             <EditText
                 android:id="@+id/paraETusername"
@@ -49,7 +49,7 @@
                 android:layout_below="@+id/paraETusername"
                 android:text="Password :"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textSize="10sp" />
+                android:textSize="12dp" />
 
             <EditText
                 android:id="@+id/paraETpassword"
@@ -72,7 +72,7 @@
                 android:layout_below="@+id/paraETpassword"
                 android:text="PID Key :"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textSize="10sp" />
+                android:textSize="12dp" />
 
             <EditText
                 android:id="@+id/paraETpidkey"
@@ -94,7 +94,7 @@
                 android:layout_below="@+id/paraETpidkey"
                 android:text="Site / Branch :"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textSize="10sp" />
+                android:textSize="12dp" />
 
             <EditText
                 android:id="@+id/paraETsite"
@@ -114,7 +114,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/paraETsite"
                 android:layout_alignParentRight="true"
-                android:layout_below="@+id/paraETsite" />
+                android:layout_below="@+id/paraETsite"
+                android:minHeight="30dp" />
 
             <TextView
                 android:id="@+id/paraTvrom"
@@ -124,7 +125,7 @@
                 android:layout_below="@+id/paraSpin1"
                 android:text="Regional Operation Manager :"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textSize="10sp" />
+                android:textSize="12dp" />
 
             <EditText
                 android:id="@+id/paraETrom"
@@ -143,7 +144,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/paraETrom"
-                android:layout_below="@+id/paraETrom" />
+                android:layout_below="@+id/paraETrom"
+                android:minHeight="30dp" />
 
             <RelativeLayout
                 android:id="@+id/relativeLayout1"
@@ -163,6 +165,8 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginLeft="21dp"
                     android:background="@drawable/btnmerah"
+                    android:minHeight="30dp"
+                    android:minWidth="30dp"
                     android:text="Save"
                     android:textSize="10dp" />
 
@@ -174,6 +178,8 @@
                     android:layout_alignParentTop="true"
                     android:layout_toRightOf="@+id/paraBtnSave"
                     android:background="@drawable/btnmerah"
+                    android:minHeight="30dp"
+                    android:minWidth="30dp"
                     android:text="Log"
                     android:textSize="10dp" />
 
@@ -185,8 +191,11 @@
                     android:layout_alignParentTop="true"
                     android:layout_toRightOf="@+id/paraBtnLog"
                     android:background="@drawable/btnmerah"
+                    android:minHeight="30dp"
+                    android:minWidth="30dp"
                     android:text="Back"
                     android:textSize="10dp" />
+
             </RelativeLayout>
 
             <TextView
@@ -206,10 +215,10 @@
                 android:layout_alignLeft="@+id/paraSpin2"
                 android:layout_alignParentRight="true"
                 android:layout_below="@+id/paraSpin2"
-                android:height="30dp"
+                android:height="20dp"
                 android:text="Syncronize Choice "
                 android:textSize="10dp"
-                android:width="30dp" />
+                android:width="20dp" />
 
         </RelativeLayout>
 

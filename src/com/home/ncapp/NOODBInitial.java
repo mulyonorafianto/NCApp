@@ -169,7 +169,7 @@ public class NOODBInitial {
 		return null;
 	}
 	
-	// table logs //
+	// table logs // ---------------------
 	public long createLog(String ldate, String lproses, String lnotes) {
 		ContentValues cvILog = new ContentValues();
 		cvILog.put(LOG_DATE, ldate);
@@ -177,6 +177,75 @@ public class NOODBInitial {
 		cvILog.put(LOG_NOTES, lnotes);
 		return ourDatabase.insert(DATABASE_LOGTABLE, null, cvILog);
 	}
+	
+	public long deletelogtab() {
+		return ourDatabase.delete(DATABASE_LOGTABLE, null, null);
+	}
+	
+	public Cursor fetchAllLog() { 
+		String[] coloums = new String[]{LOG_ROWID, LOG_DATE, LOG_PROSSES, LOG_NOTES};
+		return ourDatabase.query(DATABASE_LOGTABLE, coloums, null,null,null,null,null);
+	}
+
+	public int getJLog() {
+		String[] coloums = new String[]{LOG_ROWID, LOG_DATE, LOG_PROSSES, LOG_NOTES};
+		Cursor c = ourDatabase.query(DATABASE_LOGTABLE, coloums, null,null,null,null,null);
+		int result = 0;
+		for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
+			result++;
+		}			
+		return result;				
+	}
+	
+	public int getRecLog() {
+		String[] coloums = new String[]{LOG_ROWID, LOG_DATE, LOG_PROSSES, LOG_NOTES};
+		Cursor c = ourDatabase.query(DATABASE_LOGTABLE, coloums, null,null,null,null,null);
+		String result = "0";
+		if (c != null){
+		    c.moveToFirst();
+		    if (c.getString(0) != null) {
+		       result = c.getString(0);			
+		       return Integer.parseInt(result);
+		    }else{
+		       return 0;	
+		    }
+		}
+		return 0;
+	}
+	
+	//================================
+	public String getRtLogDate(long l) {
+		String[] coloums = new String[]{LOG_ROWID, LOG_DATE, LOG_PROSSES, LOG_NOTES};
+		Cursor c = ourDatabase.query(DATABASE_LOGTABLE, coloums, LOG_ROWID +"="+l, null, null, null, null);
+		if (c != null){
+			c.moveToFirst();
+			String LogDate = c.getString(1);
+			return LogDate;
+		}
+		return null;
+	}
+
+	public String getRtLogProses(long l) {
+		String[] coloums = new String[]{LOG_ROWID, LOG_DATE, LOG_PROSSES, LOG_NOTES};
+		Cursor c = ourDatabase.query(DATABASE_LOGTABLE, coloums, LOG_ROWID +"="+l, null, null, null, null);
+		if (c != null){
+			c.moveToFirst();
+			String LogProses = c.getString(2);
+			return LogProses;
+		}
+		return null;
+	}
+
+	public String getRtNote(long l) {
+		String[] coloums = new String[]{LOG_ROWID, LOG_DATE, LOG_PROSSES, LOG_NOTES};
+		Cursor c = ourDatabase.query(DATABASE_LOGTABLE, coloums, LOG_ROWID +"="+l, null, null, null, null);
+		if (c != null){
+			c.moveToFirst();
+			String LogNote = c.getString(3);
+			return LogNote;
+		}
+		return null;
+	} 
 
 	
 }

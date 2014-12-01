@@ -29,17 +29,14 @@ public class MainActivity extends ActionBarActivity {
 		btnParameter.setOnClickListener(new View.OnClickListener() {			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				Intent openActivityParameter = new Intent("com.home.ncapp.NOOPARAMATER");
-				startActivity(openActivityParameter);
-				
+				startActivity(openActivityParameter);				
 			}
 		});
 		
 		btnKeluar.setOnClickListener(new View.OnClickListener() {			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 		        finish();  		
 			}
 		});
