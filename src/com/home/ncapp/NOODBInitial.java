@@ -19,7 +19,15 @@ public class NOODBInitial {
 	public static final String LOG_DATE = "log_date";
 	public static final String LOG_PROSSES = "log_prosses";
 	public static final String LOG_NOTES = "log_notes";
-		
+	
+	public static final String CUS_ROWID = "_idx";
+	public static final String CUS_NAME = "cus_name";
+	public static final String CUS_SADDR = "cus_address";
+	public static final String CUS_CITY = "cus_city";
+	public static final String CUS_REGION = "cus_region";
+	public static final String CUS_PROPINCE = "cus_propince";
+	public static final String CUS_LOCATE = "cus_locate";
+			
 	private static final String DATABASE_NAME = "noodb";
 	private static final String DATABASE_TABLE = "noousertable";
 	private static final String DATABASE_LOGTABLE = "noologstable";
@@ -82,7 +90,7 @@ public class NOODBInitial {
 	}
 	
 	// end of Initial database ======================
-	// table user //
+	// table user //--------------------------------------------------------
 	public long createEntry(String iuser, String ipasswd, String isid,String ipsite,String iprom) {
 		ContentValues cv = new ContentValues();
 		cv.put(KEY_USER, iuser);
@@ -169,7 +177,7 @@ public class NOODBInitial {
 		return null;
 	}
 	
-	// table logs // ---------------------
+	// table logs //--------------------------------------------------------
 	public long createLog(String ldate, String lproses, String lnotes) {
 		ContentValues cvILog = new ContentValues();
 		cvILog.put(LOG_DATE, ldate);
