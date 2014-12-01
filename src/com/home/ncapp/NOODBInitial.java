@@ -168,6 +168,10 @@ public class NOODBInitial {
 		}
 		return null;
 	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> d08fa2b58320e5daa7f4ceb140456208fc4cd3a9
 	// table logs //
 	public long createLog(String ldate, String lproses, String lnotes) {
 		ContentValues cvILog = new ContentValues();
