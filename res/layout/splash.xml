@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/backgroundncc"
     android:orientation="vertical"
-    tools:ignore="HardcodedText,ContentDescription" >
+    tools:ignore="HardcodedText,ContentDescription,RtlHardcoded" >
 
     <TextView
         android:id="@+id/splashTvversion"
