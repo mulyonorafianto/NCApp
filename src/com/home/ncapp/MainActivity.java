@@ -40,7 +40,7 @@ public class MainActivity extends ActionBarActivity {
 		        finish();  		
 			}
 		});
-		
+		 
 	}
 
 	@Override

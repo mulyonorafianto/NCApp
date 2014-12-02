@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:ignore="HardcodedText" >
+    tools:ignore="HardcodedText,RtlHardcoded,SpUsage" >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,10 +17,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:background="@drawable/btnmerah"
+            android:background="@drawable/btnhijau"
             android:minHeight="30dp"
             android:minWidth="30dp"
-            android:text="Clear Log" />
+            android:text="Clear Log"
+            android:textSize="10dp" />
 
         <Button
             android:id="@+id/logbtnback"
@@ -30,10 +31,11 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/logbtnClear"
-            android:background="@drawable/btnmerah"
+            android:background="@drawable/btnhijau"
             android:minHeight="30dp"
             android:minWidth="30dp"
-            android:text="Back" />
+            android:text="Back"
+            android:textSize="10dp" />
 
     </RelativeLayout>
 

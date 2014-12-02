@@ -59,7 +59,10 @@
         android:layout_alignLeft="@+id/btnPosting"
         android:layout_alignRight="@+id/btnPosting"
         android:layout_below="@+id/btnPosting"
+        android:background="@drawable/btnhijau"
         android:height="30dp"
+        android:minHeight="40dp"
+        android:minWidth="30dp"
         android:text="@string/mnu_parameter_noo"
         android:textSize="10dp" />
 
@@ -71,7 +74,10 @@
         android:layout_alignLeft="@+id/btnPara"
         android:layout_alignRight="@+id/btnPara"
         android:layout_below="@+id/btnPara"
+        android:background="@drawable/btnhijau"
         android:height="30dp"
+        android:minHeight="40dp"
+        android:minWidth="30dp"
         android:text="@string/mnu_exit_noo"
         android:textSize="10dp" />
 
@@ -83,7 +89,10 @@
         android:layout_alignLeft="@+id/btnList"
         android:layout_alignRight="@+id/btnList"
         android:layout_below="@+id/btnList"
+        android:background="@drawable/btnhijau"
         android:height="30dp"
+        android:minHeight="40dp"
+        android:minWidth="30dp"
         android:text="@string/mnu_sync_posting_noo"
         android:textSize="10dp" />
 
@@ -95,7 +104,10 @@
         android:layout_alignLeft="@+id/splashTvcomp"
         android:layout_alignRight="@+id/splashTvcomp"
         android:layout_centerVertical="true"
+        android:background="@drawable/btnhijau"
         android:height="30dp"
+        android:minHeight="40dp"
+        android:minWidth="30dp"
         android:text="@string/mnu_overview_list_noo"
         android:textSize="10dp" />
 

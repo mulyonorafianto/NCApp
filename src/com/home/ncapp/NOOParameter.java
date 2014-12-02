@@ -31,7 +31,7 @@ public class NOOParameter extends Activity implements AdapterView.OnItemSelected
 	
 	CheckBox synPil;
 	
-	public String datestring;
+	public String datestring; 
 	
 	String[] sitex = {"BDG1 Bandung","JKT1 Jakarta","SBY1 Surabaya","YGY1 Yogjakarta","SLO1 Solo","DPS1 Denpasar"};
 	String[] romax = {"RA1 Region Indonesia Barat","RA2 Region Indonesia Tengah","RA3 Region Indonesia Timur"};
