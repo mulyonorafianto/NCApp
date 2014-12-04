@@ -52,6 +52,7 @@
                 <action android:name="com.home.ncapp.NOOCUSTOOVIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+<<<<<<< HEAD
         </activity>
         <activity
             android:name=".NOOCustoDetailInfo"
@@ -60,6 +61,8 @@
                 <action android:name="com.home.ncapp.NOOCUSTODETAILINFO" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+=======
+>>>>>>> origin/master
         </activity>                 
     </application>
 </manifest>

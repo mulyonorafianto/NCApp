@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import android.app.ListActivity;
+<<<<<<< HEAD
 import android.content.Intent;
+=======
+>>>>>>> origin/master
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -35,6 +38,7 @@ public class NOOCustoOview extends ListActivity {
 			}
 	    });
 	    
+<<<<<<< HEAD
 	    Button btnOvCustAdd = (Button) findViewById(R.id.btncustOvAdd);
 	    btnOvCustAdd.setOnClickListener(new View.OnClickListener() {			
 			@Override
@@ -44,6 +48,8 @@ public class NOOCustoOview extends ListActivity {
 			}
 		});
 	    
+=======
+>>>>>>> origin/master
 	    Button btnOvCustBack = (Button) findViewById(R.id.btncustOvBack);
 	    btnOvCustBack.setOnClickListener(new View.OnClickListener() {			
 			@Override
@@ -86,11 +92,19 @@ public class NOOCustoOview extends ListActivity {
  		}
 		info.close();	
  	
+<<<<<<< HEAD
 	    ListAdapter adapterCustOview = new SimpleAdapter(NOOCustoOview.this, mylistcustomer , R.layout.rowovcust,
 	                           new String[] { "CUSTNAME", "CUSTADDR" },
 	                           new int[] { R.id.cust_name, R.id.cust_address });
 	     
 	    setListAdapter(adapterCustOview);
+=======
+	    ListAdapter adapterlog = new SimpleAdapter(NOOCustoOview.this, mylistcustomer , R.layout.rowovcust,
+	                           new String[] { "CUSTNAME", "CUSTADDR" },
+	                           new int[] { R.id.cust_name, R.id.cust_address });
+	     
+	    setListAdapter(adapterlog);
+>>>>>>> origin/master
 	}
 	
 
