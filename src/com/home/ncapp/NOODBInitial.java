@@ -27,10 +27,22 @@ public class NOODBInitial {
 	public static final String CUS_REGION = "cus_region";
 	public static final String CUS_PROPINCE = "cus_propince";
 	public static final String CUS_LOCATE = "cus_locate";
+	public static final String CUS_KLASIFY = "cus_klasify";
+	public static final String CUS_DIVISI = "cus_divisi";
+	public static final String CUS_BUMN = "cus_bumn";
+	public static final String CUS_LCREDIT = "cus_lcredit";
+	public static final String CUS_OWNER = "cus_owner";
+	public static final String CUS_PIC = "cus_pic";
+	public static final String CUS_EMAIL = "cus_email";
+	public static final String CUS_CTELP = "cus_ctelp";
+	public static final String CUS_CRDATE = "cus_crdate";
+	public static final String CUS_SITE = "cus_site";
+	public static final String CUS_PSALES = "cus_psales";
 			
 	private static final String DATABASE_NAME = "noodb";
 	private static final String DATABASE_TABLE = "noousertable";
 	private static final String DATABASE_LOGTABLE = "noologstable";
+	private static final String DATABASE_CUSTOMER = "noocusttable";
 	private static final int DATABASE_VERSION = 1;
 	
 	private DbHelper ourHelper;
@@ -62,6 +74,26 @@ public class NOODBInitial {
 			LOG_PROSSES + " TEXT NOT NULL, " +
 			LOG_NOTES + " TEXT NOT NULL ); "
             );	
+			
+			db.execSQL("CREATE TABLE "+ DATABASE_CUSTOMER + " ("+
+			CUS_ROWID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
+			CUS_NAME + " TEXT NOT NULL, " +
+			CUS_SADDR + " TEXT NOT NULL, " +
+			CUS_CITY + " TEXT NOT NULL, " +
+			CUS_REGION + " TEXT NOT NULL, " +
+			CUS_PROPINCE + " TEXT NOT NULL, " +
+			CUS_LOCATE + " TEXT NOT NULL, " +
+			CUS_KLASIFY + " TEXT NOT NULL, " +
+			CUS_DIVISI + " TEXT NOT NULL, " +
+			CUS_BUMN + " TEXT NOT NULL, " +
+			CUS_OWNER + " TEXT NOT NULL, " +
+			CUS_PIC + " TEXT NOT NULL, " +
+			CUS_EMAIL + " TEXT NOT NULL, " +
+			CUS_CTELP + " TEXT NOT NULL, " +
+			CUS_CRDATE + " TEXT NOT NULL, " +
+			CUS_SITE + " TEXT NOT NULL, " +
+			CUS_PSALES + " TEXT NOT NULL ); "
+		    );
 		}
 
 		@Override
@@ -254,6 +286,66 @@ public class NOODBInitial {
 		}
 		return null;
 	} 
+	
+	
+	// table customer //--------------------------------------------------------
+	public long createCustomer(String icust, String iaddr, String icity,String iregion,String ipropinc) {
+		ContentValues cvc = new ContentValues();
+		cvc.put(CUS_NAME, icust);
+		cvc.put(CUS_SADDR, iaddr);
+		cvc.put(CUS_CITY, icity);
+		cvc.put(CUS_REGION, iregion);
+		cvc.put(CUS_PROPINCE, ipropinc);
+		return ourDatabase.insert(DATABASE_CUSTOMER, null, cvc);
+	} 
+	
+	public int getJCust() {
+		String[] coloums = new String[]{CUS_ROWID,CUS_NAME,CUS_SADDR,CUS_CITY,CUS_REGION,CUS_PROPINCE,CUS_LOCATE,CUS_KLASIFY,CUS_DIVISI,CUS_BUMN,CUS_OWNER,CUS_PIC,CUS_EMAIL,CUS_CTELP,CUS_CRDATE,CUS_SITE,CUS_PSALES};
+		Cursor c = ourDatabase.query(DATABASE_CUSTOMER, coloums, null,null,null,null,null);
+		int result = 0;
+		for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
+			result++;
+		}			
+		return result;				
+	}
 
+	public int getRecCustom() {
+		String[] coloums = new String[]{CUS_ROWID,CUS_NAME,CUS_SADDR,CUS_CITY,CUS_REGION,CUS_PROPINCE,CUS_LOCATE,CUS_KLASIFY,CUS_DIVISI,CUS_BUMN,CUS_OWNER,CUS_PIC,CUS_EMAIL,CUS_CTELP,CUS_CRDATE,CUS_SITE,CUS_PSALES};
+		Cursor c = ourDatabase.query(DATABASE_CUSTOMER, coloums, null,null,null,null,null);
+		String result = "0";
+		if (c != null){
+		    c.moveToFirst();
+		    if (c.getString(0) != null) {
+		       result = c.getString(0);			
+		       return Integer.parseInt(result);
+		    }else{
+		       return 0;	
+		    }
+		}
+		return 0;
+	}
+	
+	public String getRCustName(long l) {
+		String[] coloums = new String[]{CUS_ROWID,CUS_NAME,CUS_SADDR,CUS_CITY,CUS_REGION,CUS_PROPINCE,CUS_LOCATE,CUS_KLASIFY,CUS_DIVISI,CUS_BUMN,CUS_OWNER,CUS_PIC,CUS_EMAIL,CUS_CTELP,CUS_CRDATE,CUS_SITE,CUS_PSALES};;
+		Cursor cCust = ourDatabase.query(DATABASE_CUSTOMER, coloums, KEY_ROWID +"="+l, null, null, null, null);
+		if (cCust != null){
+			cCust.moveToFirst();
+			String Uname = cCust.getString(1);
+			return Uname;
+		}
+		return null;
+	}
+
+	public String getRCustAddr(long l) {
+		String[] coloums = new String[]{CUS_ROWID,CUS_NAME,CUS_SADDR,CUS_CITY,CUS_REGION,CUS_PROPINCE,CUS_LOCATE,CUS_KLASIFY,CUS_DIVISI,CUS_BUMN,CUS_OWNER,CUS_PIC,CUS_EMAIL,CUS_CTELP,CUS_CRDATE,CUS_SITE,CUS_PSALES};;
+		Cursor cCust = ourDatabase.query(DATABASE_CUSTOMER, coloums, KEY_ROWID +"="+l, null, null, null, null);
+		if (cCust != null){
+			cCust.moveToFirst();
+			String Uname = cCust.getString(2);
+			return Uname;
+		}
+		return null;
+	}
+	
 	
 }
