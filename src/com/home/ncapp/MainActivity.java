@@ -22,9 +22,17 @@ public class MainActivity extends ActionBarActivity {
 		mnTvVer = (TextView) findViewById(R.id.splashTvJudul);
 		mnTvVer.setTextColor(Color.rgb(200, 0, 0));
 		
+		Button btnCustOview = (Button) findViewById(R.id.btnList);
 		Button btnParameter = (Button) findViewById(R.id.btnPara);
 		Button btnKeluar = (Button) findViewById(R.id.btnKeluar);
 		
+		btnCustOview.setOnClickListener(new View.OnClickListener() {			
+			@Override
+			public void onClick(View v) {
+				Intent openActivityLisOview = new Intent("com.home.ncapp.NOOCUSTOOVIEW");
+				startActivity(openActivityLisOview);
+			}
+		});
 		
 		btnParameter.setOnClickListener(new View.OnClickListener() {			
 			@Override
