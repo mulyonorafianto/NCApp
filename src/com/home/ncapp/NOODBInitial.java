@@ -292,13 +292,18 @@ public class NOODBInitial {
 	public long createCustomer(String icust, String iaddr, String icity,String iregion,String ipropinc) {
 		ContentValues cvc = new ContentValues();
 		cvc.put(CUS_NAME, icust);
+<<<<<<< HEAD
 		cvc.put(CUS_SADDR, iaddr); 
+=======
+		cvc.put(CUS_SADDR, iaddr);
+>>>>>>> origin/master
 		cvc.put(CUS_CITY, icity);
 		cvc.put(CUS_REGION, iregion);
 		cvc.put(CUS_PROPINCE, ipropinc);
 		return ourDatabase.insert(DATABASE_CUSTOMER, null, cvc);
 	} 
 	
+<<<<<<< HEAD
 	public long updateCustomer(String l, String icust, String iaddr,
 			String icity, String iregion, String ipropinc) {
 			ContentValues cvUp = new ContentValues();
@@ -310,6 +315,8 @@ public class NOODBInitial {
 			return ourDatabase.update(DATABASE_CUSTOMER, cvUp, KEY_ROWID +"="+l, null);
 		}
 	
+=======
+>>>>>>> origin/master
 	public int getJCust() {
 		String[] coloums = new String[]{CUS_ROWID,CUS_NAME,CUS_SADDR,CUS_CITY,CUS_REGION,CUS_PROPINCE,CUS_LOCATE,CUS_KLASIFY,CUS_DIVISI,CUS_BUMN,CUS_OWNER,CUS_PIC,CUS_EMAIL,CUS_CTELP,CUS_CRDATE,CUS_SITE,CUS_PSALES};
 		Cursor c = ourDatabase.query(DATABASE_CUSTOMER, coloums, null,null,null,null,null);
