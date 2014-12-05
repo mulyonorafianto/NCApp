@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="TextFields,HardcodedText,RtlHardcoded,SpUsage,UselessParent" >
+
+    <RelativeLayout
+        android:layout_width="274dp"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="21dp"
+            android:layout_marginTop="34dp"
+            android:text="Cust.name:"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/edcusname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView2"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/textView1"
+            android:ems="10"
+            android:height="30dp"
+            android:inputType="textPersonName"
+            android:textSize="10dp" >
+
+            <requestFocus />
+        </EditText>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView1"
+            android:layout_below="@+id/edcusname"
+            android:text="Alamat / Address :"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/edcustadr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView2"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/textView2"
+            android:ems="10"
+            android:height="30dp"
+            android:inputType="textPersonName"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/edcustadr"
+            android:layout_below="@+id/edcustadr"
+            android:text="Kota / City :"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/edcuscity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/TextView01"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/TextView01"
+            android:ems="10"
+            android:height="30dp"
+            android:inputType="textPersonName"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/TextView02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/edcuscity"
+            android:layout_below="@+id/edcuscity"
+            android:text="Kab. Kec.  / Regional :"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/edcusreg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/TextView02"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/TextView02"
+            android:ems="10"
+            android:height="30dp"
+            android:inputType="textPersonName"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/TextView03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/edcusreg"
+            android:layout_below="@+id/edcusreg"
+            android:text="Propinsi / Propince  :"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/edcusprop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/TextView03"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/TextView03"
+            android:ems="10"
+            android:height="30dp"
+            android:inputType="textPersonName"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/TextView04"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/edcusprop"
+            android:layout_below="@+id/edcusprop"
+            android:text="Lokasi / Location :"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/edcusloc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/TextView04"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/TextView04"
+            android:ems="10"
+            android:height="30dp"
+            android:inputType="textPersonName"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/TextView06"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/TextView05"
+            android:layout_below="@+id/TextView05"
+            android:layout_marginTop="25dp"
+            android:text="Divisi / Divison :"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/TextView05"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/edcusloc"
+            android:layout_below="@+id/edcusloc"
+            android:text="Klastikasi / Klasify :"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/edcusklas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/TextView05"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/TextView05"
+            android:ems="10"
+            android:height="30dp"
+            android:inputType="textPersonName"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/edcusdivi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/TextView06"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/TextView06"
+            android:ems="10"
+            android:height="30dp"
+            android:inputType="textPersonName"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/TextView07"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/edcusdivi"
+            android:layout_below="@+id/edcusdivi"
+            android:text="Owner : "
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/edcusowner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/TextView07"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/TextView07"
+            android:ems="10"
+            android:height="30dp"
+            android:inputType="textPersonName"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/TextView08"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/edcusowner"
+            android:layout_below="@+id/edcusowner"
+            android:text="PIC :"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/edcuspic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/TextView08"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/TextView08"
+            android:ems="10"
+            android:height="30dp"
+            android:inputType="textPersonName"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/TextView09"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/edcuspic"
+            android:layout_below="@+id/edcuspic"
+            android:text="Email :"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/edcusemail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/TextView09"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/TextView09"
+            android:ems="10"
+            android:height="30dp"
+            android:inputType="textPersonName"
+            android:textSize="10dp" />
+    </RelativeLayout>
+
+</LinearLayout>
